@@ -79,7 +79,7 @@ int menu()
 	//traitement
 	do
 	{
-		printf("\n Menu: \n 1. Generer un fichier de donnees\n 2. Afficher le tableau avant tri \n 3. Afficher le tableau apres tri \n 4. Sauvegarder le fichier trie dans un nv fichier \n 5. Quitter\n\n");
+		printf("\n =====Menu:===== \n 1. Generer un fichier de donnees\n 2. Afficher le tableau avant tri \n 3. Afficher le tableau apres tri \n 4. Sauvegarder le fichier trie dans un nv fichier \n 5. Quitter\n\n");
 		printf("Votre choix: ");
 		scanf("%d",&choice);
 		if (choice > 5 || choice < 1 )
