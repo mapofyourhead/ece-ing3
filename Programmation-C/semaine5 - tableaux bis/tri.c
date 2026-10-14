@@ -20,14 +20,14 @@ void generer_fichier(int *tab, const char *nom_fichier)
 	FILE *favant = fopen(nom_fichier,"w"); // cree le premier fichier
 	
 	if(favant ==  NULL){ // verifie si le fichier a ete ouvert
-		perror("Erreur de creation du fichier");
-		return;
+		perror("Erreur de creation du fichier"); // on peut break avec return mais erreur de style
 	}
-	
-	for(int i = 0; i < 25 ; i++){ 
+	else{
+		for(int i = 0; i < 25 ; i++){ 
 		fprintf(favant, "%d\n",tab[i]);
+		fclose(favant); //doit etre dans le else ducoup
+		}
 	}
-	fclose(favant);
 }
 
 
@@ -53,18 +53,18 @@ void tri(int *tabavant, int *tabapres)
 		tabapres[i] = tabavant[i];		
 	}	
 	
-	for(int j = 0; j < 24 ; j++){ // j = position que je veux remplir
+	for(int i = 0; i < 24 ; i++){ // j = position que je veux remplir
 	// fin a 24 puisque le dernier elemet sera a sa place
-		min = j; //hyp: le premier element restand est le min
-		for(int i = j+1; i < 25 ; i++){ //commencer a int j+1 pour pas comparer j avec lui memee
+		min = i; //hyp: le premier element restand est le min
+		for(int j = i+1; j < 25 ; j++){ //commencer a int j+1 pour pas comparer j avec lui memee
 			
-			if(tabapres[i] < tabapres[min])
+			if(tabapres[j] < tabapres[min])
 			{
-				min = i;
+				min = j;
 			}
 		}
-	temp = tabapres[j];
-	tabapres[j] = tabapres[min];
+	temp = tabapres[i];   
+	tabapres[i] = tabapres[min];
 	tabapres[min] = temp;
 	}
 }
@@ -122,24 +122,24 @@ int main()
 	{
 		case 1 : 
 			generer_fichier(tabavant, "favant.txt"); // creer fichier avec les valeurs aleatoires du tableau non trie
-			printf("Fichier cree!\n\n");
+			printf("\nFichier cree!\n\n");
 			break; 
 			
 		case 2 : 
-			printf("Voici le tableau avant le tri:\n\n");
+			printf("\nVoici le tableau avant le tri:\n\n");
 			afficher(tabavant); // afficher le tableau avant tri
 			
 			break;
 		
 		case 3 : 
 			tri(tabavant,tabapres); // trier et afficher le tableau trie 
-			printf("Voici le tableau trie:\n\n");
+			printf("\nVoici le tableau trie:\n\n");
 			afficher(tabapres);
 			break;
 		
 		case 4 :
 			generer_fichier(tabapres,"fapres.txt"); // 
-			printf("Fichier cree!\n\n");
+			printf("\nFichier cree!\n\n");
 			break;
 		
 		case 5 :
