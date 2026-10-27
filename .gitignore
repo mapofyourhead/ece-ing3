@@ -83,4 +83,3 @@ venv/
 # Proteus : disposition des fenetres propre e chaque utilisateur
 *.workspace
 *.workspace.*# Keep only firmware sources and build instructions in Git.
-*
