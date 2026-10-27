@@ -76,3 +76,11 @@ venv/
 
 # PlatformIO build files
 .pio/
+
+# Proteus : sauvegardes automatiques
+*.[pP][dD][sS][bB][aA][kK]
+
+# Proteus : disposition des fenetres propre e chaque utilisateur
+*.workspace
+*.workspace.*# Keep only firmware sources and build instructions in Git.
+*
