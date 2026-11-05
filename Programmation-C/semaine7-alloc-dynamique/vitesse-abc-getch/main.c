@@ -15,13 +15,6 @@ void gotoxy(int x, int y) {
 }
 
 
-int verifierFin(int posB, int col){
-    if (posB == col - 1){
-        return 1;
-    }
-    return 0;
-}
-
 
 int main()
 {
@@ -57,7 +50,7 @@ int main()
 
     //initialisation positions a,b,c
 
-    gotoxy(xA,yA);
+    gotoxy(xA,yA); //mettre dans matrice pas juste printf a l ecran
     printf("a");
     gotoxy(xB,yB);
     printf("b");
@@ -97,7 +90,7 @@ int main()
                         yA = (yA + 1) % lin;
                     }
 
-                    gotoxy(xA,yA);
+                    gotoxy(xA,yA); // afficher l element de la matrice a la positiobn de a
                     printf("a"); //afficher la nouvelle position de a
 
             }
