@@ -2,7 +2,7 @@
 <CodeBlocks_project_file>
 	<FileVersion major="1" minor="6" />
 	<Project>
-		<Option title="vitesse-abc-getch" />
+		<Option title="vitesse-abc-matrice-dyn" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
 		<Build>
