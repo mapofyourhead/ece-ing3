@@ -83,6 +83,24 @@ void afficherClassement(const Appel appels[], int nbAppels)
         BilanCorrespondant bilan = {debutGroupe, 0, 0};
         int suivant = debutGroupe;
 
+
+        // Affiche le nombre total d'appels par correspondant
+        printf("\nHistogramme des appels par correspondant\n");
+        printf("Chaque # represente un appel\n");
+
+        for (int i = 0; i < nbCorrespondants; i++) {
+            int indice = bilans[i].indicePremierAppel;
+            int total = bilans[i].entrants + bilans[i].sortants;
+
+            printf("%s %s (%d) ", appels[indice].prenom, appels[indice].nom, total);
+
+            // Dessine une barre dont la longueur correspond au total
+            for (int j = 0; j < total; j++) {
+                putchar('#');
+            }
+            putchar('\n');
+        }
+
         // Compte les appels entrants et sortants du numéro courant
         while (suivant < nbAppels &&
                strcmp(appels[debutGroupe].numero, appels[suivant].numero) == 0) {
